@@ -115,6 +115,8 @@
     owner: "{{ redelk_user }}"
     group: root
   notify: run init-letsencrypt.sh
+  tags:
+    - letsencrypt
 
 - name: Force run init-letsencrypt.sh if needed
   meta: flush_handlers
