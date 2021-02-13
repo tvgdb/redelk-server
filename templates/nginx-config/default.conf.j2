@@ -48,6 +48,7 @@ server {
         }
     }
 
+{% if redelk_install_type == 'full' %}
     location /neo4jbrowser {
         auth_basic "Restricted Access";
         auth_basic_user_file /etc/nginx/conf.d/htpasswd.users;
@@ -69,4 +70,5 @@ server {
         proxy_set_header Upgrade "websocket";
         proxy_set_header Connection "Upgrade";
         proxy_read_timeout 86400;    }
+{% endif %}
 }
